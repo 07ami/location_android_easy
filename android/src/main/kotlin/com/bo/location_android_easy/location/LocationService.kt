@@ -39,17 +39,22 @@ class LocationService(private val context: Activity)  {
         }
     }
     private fun getProvider(): String? {
-        val criteria = Criteria()
-        criteria.accuracy = Criteria.ACCURACY_COARSE //低精度，如果设置为高精度，依然获取不了location
-        criteria.isAltitudeRequired = false //不要求海拔
-        criteria.isBearingRequired = false //不要求方位
-        criteria.isCostAllowed = true //允许有花费
-        criteria.powerRequirement = Criteria.POWER_LOW //低功耗
-        //从可用的位置提供器中，匹配以上标准的最佳提供器
-        //public static final String FUSED_PROVIDER = "fused";
-        //public static final String GPS_PROVIDER = "gps";
-        //var provider = GPS_PROVIDER;
-        return locationManager.getBestProvider(criteria, true)
+        // val criteria = Criteria()
+        // criteria.accuracy = Criteria.ACCURACY_COARSE //低精度，如果设置为高精度，依然获取不了location
+        // criteria.isAltitudeRequired = false //不要求海拔
+        // criteria.isBearingRequired = false //不要求方位
+        // criteria.isCostAllowed = true //允许有花费
+        // criteria.powerRequirement = Criteria.POWER_LOW //低功耗
+        // //从可用的位置提供器中，匹配以上标准的最佳提供器
+        // //public static final String FUSED_PROVIDER = "fused";
+        // //public static final String GPS_PROVIDER = "gps";
+        // //var provider = GPS_PROVIDER;
+        // return locationManager.getBestProvider(criteria, true)
+        /**
+         *  通过locationManager.getBestProvider(criteria, true)的方式的话，
+         * 有时候，貌似是直接就设置未fused方式而不是gps方式了，它又不自动切换到gps
+         */
+        return "gps"
     }
     fun getLastKnownLocation(): Map<String, Any?> {
         permissionUtil.checkAndRequestPermission()
