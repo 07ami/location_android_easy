@@ -68,6 +68,7 @@ class LocationService(private val context: Activity)  {
         getProvider() ?: return false
         this.basicMessageChannel = basicMessageChannel
         locationManager.removeUpdates(locationListener)
+        //TODO:这里的数据有问题
         // locationManager.requestLocationUpdates(getProvider().toString(), minTime, minDistance, locationListener)
         locationManager.requestLocationUpdates("gps",100,0f, locationListener)
         return true
