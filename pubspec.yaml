@@ -1,5 +1,5 @@
 name: location_android_easy
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/07ami/location_android_easy.git
 description: A cross platform plugin for obtaining location information of android platform
 environment:
