@@ -38,7 +38,7 @@ class MethodChannelLocationAndroidEasy extends LocationAndroidEasyPlatform {
     if (useLastKnownLocation) {
       location = await getLastKnownLocation();
       if (location?.latitude != null && location?.longitude != null) {
-        return null;
+        return location;
       }
     }
     getLocationListener((LocationInfo locationInfo) {
