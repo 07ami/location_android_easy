@@ -32,7 +32,7 @@ class MethodChannelLocationAndroidEasy extends LocationAndroidEasyPlatform {
   ///[useLastKnownLocation]:是否优先将上次的位置信息作为结果返回。如为false，则会获取当前最新值
   @override
   Future<LocationInfo?> getLocation(
-      {int timeout = 5, bool useLastKnownLocation = false}) async {
+      {int timeout = 6, bool useLastKnownLocation = false}) async {
     if (!Platform.isAndroid) return null;
     LocationInfo? location;
     if (useLastKnownLocation) {
@@ -121,7 +121,7 @@ class LocationInfo {
 
   LocationInfo.fromJson(json)
       : latitude = json['latitude'],
-        longitude = json['latitude'],
+        longitude = json['longitude'],
         accuracy = json['accuracy'],
         provider = json['provider'];
 
